@@ -33,21 +33,24 @@ export default class Predictions extends Component {
 
   makePredictionsArr(){
     let predictions = [this.state.predictions.pred1, this.state.predictions.pred2, this.state.predictions.pred3, this.state.predictions.pred4, this.state.predictions.pred5, this.state.predictions.pred6]
-    this.setState({predictions_arr: predictions})
+    this.setState({predictions_arr: predictions});
+
   }
 
   submitPredictions(){
-    Axios.post(`http://localhost:8000/predictions/${this.state.user_id}`, {
-      predictions: this.state.predictions_arr,
-      email: this.state.user_email,
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(() => {
-      console.log('success!')
-    })
-    .catch(err => console.log('err in submitPredictions: ', err))
+    if (this.state.predictions_arr !== []) {
+      Axios.post(`http://localhost:8000/predictions/${this.state.user_id}`, {
+        predictions: this.state.predictions_arr,
+        email: this.state.user_email,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(() => {
+        console.log('success!')
+      })
+      .catch(err => console.log('err in submitPredictions: ', err))
+    }
   }
 
   handleChange(event){
