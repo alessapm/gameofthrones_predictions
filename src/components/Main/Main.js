@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import update from 'react-addons-update';
 import Axios from 'axios';
-
+import { browserHistory } from 'react-router';
 import Banner from '../../styles/images/throne.jpg';
 
 export default class Main extends Component {
@@ -21,8 +21,19 @@ export default class Main extends Component {
         "Content-Type": "application/json"
       }
     })
-    .then(() => console.log('new user created'))
+    .then((data) => {
+      localStorage.removeItem('user_id');
+      localStorage.removeItem('user_email');
+      localStorage.removeItem('user_name');
+
+      console.log('new user created, data.data: ', data.data);
+      window.localStorage.setItem('user_id', data.data.id);
+      window.localStorage.setItem('user_email', data.data.email);
+      window.localStorage.setItem('user_name', data.data.name);
+      browserHistory.push('/predictions');
+    })
     .catch(err => console.log('error in new user submit'))
+
   }
 
 checkPassword(){
