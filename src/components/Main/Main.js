@@ -16,11 +16,13 @@ export default class Main extends Component {
 
   submitNewUser(){
     Axios.post(`localhost:8000/users/`, {
-      this.state.user,
+      user: this.state.user,
       headers: {
         "Content-Type": "application/json"
       }
     })
+    .then(() => console.log('new user created'))
+    .catch(err => console.log('error in new user submit'))
   }
 
 checkPassword(){
