@@ -1,0 +1,13 @@
+* {
+  background-color: #030303;
+  color: #C5BCBD;
+}
+
+.banner {
+  width: 600px;
+}
+
+.error {
+  font-size: .8em;
+  color: red;
+}
