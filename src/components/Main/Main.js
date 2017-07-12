@@ -15,7 +15,7 @@ export default class Main extends Component {
   }
 
   submitNewUser(){
-    Axios.post(`localhost:8000/users/`, {
+    Axios.post(`http://localhost:8000/users/`, {
       user: this.state.user,
       headers: {
         "Content-Type": "application/json"
