@@ -33,7 +33,7 @@ export default class Predictions extends Component {
 
   makePredictionsArr(){
     let predictions = [this.state.predictions.pred1, this.state.predictions.pred2, this.state.predictions.pred3, this.state.predictions.pred4, this.state.predictions.pred5, this.state.predictions.pred6]
-    this.setState({predictions_arr: predictions});
+    this.setState({predictions_arr: predictions}, this.submitPredictions);
 
   }
 
