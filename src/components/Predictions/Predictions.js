@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import update from 'react-addons-update';
 import Axios from 'axios';
-
+import { browserHistory } from 'react-router';
 import Sigils from '../../styles/images/sigils.jpg';
 
 export default class Predictions extends Component {
@@ -47,7 +47,7 @@ export default class Predictions extends Component {
         }
       })
       .then(() => {
-        console.log('success!')
+        browserHistory.push('/success')
       })
       .catch(err => console.log('err in submitPredictions: ', err))
     }

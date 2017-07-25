@@ -8,10 +8,16 @@ import "./styles/style.css"
 
 import Main from './components/Main/Main';
 import Predictions from './components/Predictions/Predictions';
+import Success from './components/Success/Success';
+import Login from './components/Login/Login';
+import Dashboard from './components/Dashboard/Dashboard';
 
 ReactDom.render(
   <Router history={browserHistory}>
     <Route path='/' component={Main} />
     <Route path='/predictions' component={Predictions} />
+    <Route path='/success' component={Success} />
+    <Route path='/login' component={Login} />
+    <Route path='/mypredictions' component={Dashboard} />
   </Router>,
   document.getElementById('app'));
